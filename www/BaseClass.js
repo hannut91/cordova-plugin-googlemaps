@@ -58,7 +58,9 @@ BaseClass.prototype = {
     var args = Array.prototype.slice.call(arguments, 1);
 
     while (i--) {
-      listeners[i].apply(this, args);
+      if(listeners[i]) {
+        listeners[i].apply(this, args);
+      }
     }
 
     return this;
